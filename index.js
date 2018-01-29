@@ -44,14 +44,6 @@ app.post('/webhook', function (req, res) {
   switch(action) {
       case "butter":
         userName = "margarine";
-          unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/ingredients/substitutes?ingredientName="+action)
-              .header("X-Mashape-Key", "eB4slA65XimshJw9xMYuRG4XJ5qdp1vzOF2jsnzAGxOioS6ugP")
-              .header("X-Mashape-Host", "spoonacular-recipe-food-nutrition-v1.p.mashape.com")
-              .end(function (result) {
-                  for (var i in result.body.substitutes) {
-                      userName += i;
-                  }
-              }
         break;
       default:
         userName = "Lois";
