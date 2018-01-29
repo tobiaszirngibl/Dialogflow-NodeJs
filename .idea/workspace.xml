@@ -167,7 +167,7 @@
       <workItem from="1517180491021" duration="15000" />
       <workItem from="1517180526134" duration="611000" />
       <workItem from="1517249056336" duration="777000" />
-      <workItem from="1517261640219" duration="1517000" />
+      <workItem from="1517261640219" duration="1615000" />
     </task>
     <task id="LOCAL-00001" summary="Add console log">
       <created>1517179456729</created>
@@ -253,11 +253,18 @@
       <option name="project" value="LOCAL" />
       <updated>1517263673127</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Add Express and Body-Parser Dependencies">
+      <created>1517264117587</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1517264117587</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5004000" />
+    <option name="totallyTimeSpent" value="5102000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -301,7 +308,8 @@
     <MESSAGE value="Working with all dependencies" />
     <MESSAGE value="Define start script" />
     <MESSAGE value="Switch start script to index.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="Switch start script to index.js" />
+    <MESSAGE value="Add Express and Body-Parser Dependencies" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Express and Body-Parser Dependencies" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
