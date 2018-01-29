@@ -34,9 +34,20 @@ app.post('/webhook', function (req, res) {
   // the value of Action from api.ai is stored in req.body.result.action
   console.log('* Received action -- %s', req.body.result.action)
 
+    var userName = "";
   // parameters are stored in req.body.result.parameters
-  var userName = req.body.result.parameters['given-name']
-  var webhookReply = 'Hello ' + userName + '! Welcome from Tobias.'
+  var action = req.body.result.parameters['food-substitute'];
+
+  switch(action) {
+      case "butter":
+        userName = "margarine";
+        break;
+      default:
+        userName = "Lois";
+        break;
+  }
+
+  var webhookReply = 'Hello ' + userName + '! Welcome from Tobi.'
 
   // the most basic response
   res.status(200).json({
