@@ -1,31 +1,23 @@
 {
-  "name": "apiai-nodejs-webhook-sample",
+  "name": "dialogflow-nodejs",
   "version": "1.0.0",
-  "description": "a sample webhook (with authentication) for api.ai",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "unirest": "^0.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/supermamon/apiai-nodejs-webhook-sample.git"
+    "url": "git+https://github.com/tobiaszirngibl/Dialogflow-NodeJs.git"
   },
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "keywords": [
-    "apiai",
-    "webhook"
-  ],
-  "author": "Raymond Velasquez <at.supermamon@gmail.com> (https://supermamon.com)",
+  "author": "",
   "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.17.2",
-    "express": "^4.15.3"
-  },
-  "engines": {
-    "node": "8.1.4"
-  },
   "bugs": {
-    "url": "https://github.com/supermamon/apiai-nodejs-webhook-sample/issues"
+    "url": "https://github.com/tobiaszirngibl/Dialogflow-NodeJs/issues"
   },
-  "homepage": "https://github.com/supermamon/apiai-nodejs-webhook-sample#readme",
-  "devDependencies": {}
+  "homepage": "https://github.com/tobiaszirngibl/Dialogflow-NodeJs#readme"
 }
