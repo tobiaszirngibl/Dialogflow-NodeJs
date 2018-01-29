@@ -168,7 +168,7 @@
       <workItem from="1517180491021" duration="15000" />
       <workItem from="1517180526134" duration="611000" />
       <workItem from="1517249056336" duration="777000" />
-      <workItem from="1517261640219" duration="1198000" />
+      <workItem from="1517261640219" duration="1285000" />
     </task>
     <task id="LOCAL-00001" summary="Add console log">
       <created>1517179456729</created>
@@ -240,11 +240,18 @@
       <option name="project" value="LOCAL" />
       <updated>1517263415136</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Define start script">
+      <created>1517263587797</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1517263587797</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4685000" />
+    <option name="totallyTimeSpent" value="4772000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -286,7 +293,8 @@
     <MESSAGE value="no plan" />
     <MESSAGE value="It works?" />
     <MESSAGE value="Working with all dependencies" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working with all dependencies" />
+    <MESSAGE value="Define start script" />
+    <option name="LAST_COMMIT_MESSAGE" value="Define start script" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
