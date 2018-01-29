@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4522f787-6de7-4108-94bd-572542c4bd4d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,8 +22,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="39" column="9" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state relative-caret-position="525">
+              <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -168,7 +167,7 @@
       <workItem from="1517180491021" duration="15000" />
       <workItem from="1517180526134" duration="611000" />
       <workItem from="1517249056336" duration="777000" />
-      <workItem from="1517261640219" duration="1285000" />
+      <workItem from="1517261640219" duration="1517000" />
     </task>
     <task id="LOCAL-00001" summary="Add console log">
       <created>1517179456729</created>
@@ -247,11 +246,18 @@
       <option name="project" value="LOCAL" />
       <updated>1517263587797</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Switch start script to index.js">
+      <created>1517263673127</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1517263673127</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4772000" />
+    <option name="totallyTimeSpent" value="5004000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -294,7 +300,8 @@
     <MESSAGE value="It works?" />
     <MESSAGE value="Working with all dependencies" />
     <MESSAGE value="Define start script" />
-    <option name="LAST_COMMIT_MESSAGE" value="Define start script" />
+    <MESSAGE value="Switch start script to index.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="Switch start script to index.js" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -507,8 +514,8 @@
     <entry file="file://$PROJECT_DIR$/.gitignore" />
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="9" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        <state relative-caret-position="525">
+          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding />
         </state>
       </provider>
