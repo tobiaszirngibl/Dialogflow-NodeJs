@@ -36,67 +36,81 @@ app.post('/webhook', function (req, res) {
   // the value of Action from api.ai is stored in req.body.result.action
   console.log('* Received action -- %s', req.body.result.action)
 
+    if(req.body.result.action !== null && req.body.result.action.indexOf("smalltalk") == -1) {
 
-      switch(req.body.result.action) {
+        switch (req.body.result.action) {
 
+              case "food.substitute":
+                  var action = req.body.result.parameters['food-substitute'];
+                  var webhookReply = 'Hello! Here is a substitute list for ' + action + ': ';
 
-          case "food.substitute":
-              var action = req.body.result.parameters['food-substitute'];
-              var webhookReply = 'Hello! Here is a substitute list for ' + action + ': ';
+                  unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/ingredients/substitutes?ingredientName=" + action)
+                      .header("X-Mashape-Key", "eB4slA65XimshJw9xMYuRG4XJ5qdp1vzOF2jsnzAGxOioS6ugP")
+                      .header("X-Mashape-Host", "spoonacular-recipe-food-nutrition-v1.p.mashape.com")
+                      .end(function (result) {
+                          for (var i in result.body.substitutes) {
+                              val = result.body.substitutes[i];
+                              webhookReply += val + " or ";
+                          }
+                          res.status(200).json({
+                              source: 'webhook',
+                              speech: webhookReply,
+                              displayText: webhookReply
+                          })
 
-              unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/ingredients/substitutes?ingredientName=" + action)
-                  .header("X-Mashape-Key", "eB4slA65XimshJw9xMYuRG4XJ5qdp1vzOF2jsnzAGxOioS6ugP")
-                  .header("X-Mashape-Host", "spoonacular-recipe-food-nutrition-v1.p.mashape.com")
-                  .end(function (result) {
-                      for (var i in result.body.substitutes) {
-                          val = result.body.substitutes[i];
-                          webhookReply += val + " or ";
-                      }
-                      res.status(200).json({
-                          source: 'webhook',
-                          speech: webhookReply,
-                          displayText: webhookReply
-                      })
+                      });
+                  break;
 
-                  });
-              break;
+              case "food.plan":
 
-          case "food.plan":
+                  var diet = req.body.result.parameters['diet'];
+                  var calories = req.body.result.parameters['calories'];
+                  var timespan = req.body.result.parameters['timespan'];
 
-              var diet = req.body.result.parameters['diet'];
-              var calories = req.body.result.parameters['calories'];
-              var timespan = req.body.result.parameters['timespan'];
+                  console.log(diet);
+                  console.log(calories);
+                  console.log(timespan);
+                  var webhookReply = 'Hello!: ';
 
-              console.log(diet);
-              console.log(calories);
-              console.log(timespan);
-              var webhookReply = 'Hello!: ';
-
-              unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/mealplans/generate?diet="+diet+"&exclude=shellfish%2C+olives&targetCalories="+calories+"&timeFrame="+timespan)
-                  .header("X-Mashape-Key", "KW1you8CYtmshogLM9mgGuL0OyYXp1t4glDjsnNJi6dLuPQUvo")
-                  .header("Accept", "application/json")
-                  .end(function (result) {
+                  unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/mealplans/generate?diet=" + diet + "&exclude=shellfish%2C+olives&targetCalories=" + calories + "&timeFrame=" + timespan)
+                      .header("X-Mashape-Key", "KW1you8CYtmshogLM9mgGuL0OyYXp1t4glDjsnNJi6dLuPQUvo")
+                      .header("Accept", "application/json")
+                      .end(function (result) {
                           webhookReply += JSON.stringify(result);
 
-                      res.status(200).json({
-                          source: 'webhook',
-                          speech: webhookReply,
-                          displayText: webhookReply
-                      })
+                          res.status(200).json({
+                              source: 'webhook',
+                              speech: webhookReply,
+                              displayText: webhookReply
+                          })
 
-                  });
+                      });
 
-              break;
+                  break;
 
-          default:
-              var i = "";
-              break;
+              default:
+                  var userQuery = req.body.result.resolvedQuery;
+                  userQuery = userQuery.replace(" ","&");
+
+                  unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/converse?text="+userQuery+"contextId=342938")
+                      .header("X-Mashape-Key", "eB4slA65XimshJw9xMYuRG4XJ5qdp1vzOF2jsnzAGxOioS6ugP")
+                      .header("X-Mashape-Host", "spoonacular-recipe-food-nutrition-v1.p.mashape.com")
+                      .end(function (result) {
+                          res.status(200).json({
+                              source: 'webhook',
+                              speech: result.body,
+                              displayText: result.body
+                          })
+
+                      });
+                  break;
+          }
       }
-
 
 
 })
 
 app.listen(app.get('port'), function () {
-  console.log('* Webhook service is listening on port:' + app.get('port'))
-})
+    console.log('* Webhook service is listening on port:' + app.get('port'))
+});
+
