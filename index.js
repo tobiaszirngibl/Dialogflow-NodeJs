@@ -98,8 +98,8 @@ app.post('/webhook', function (req, res) {
                       .end(function (result) {
                           res.status(200).json({
                               source: 'webhook',
-                              speech: result.body,
-                              displayText: result.body
+                              speech: JSON.stringify(result.body),
+                              displayText: JSON.stringify(result.body)
                           })
 
                       });
