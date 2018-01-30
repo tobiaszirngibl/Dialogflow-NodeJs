@@ -76,7 +76,7 @@ app.post('/webhook', function (req, res) {
                   .header("X-Mashape-Key", "KW1you8CYtmshogLM9mgGuL0OyYXp1t4glDjsnNJi6dLuPQUvo")
                   .header("Accept", "application/json")
                   .end(function (result) {
-                          webhookReply += result.toString();
+                          webhookReply += JSON.stringify(result);
 
                       res.status(200).json({
                           source: 'webhook',
