@@ -90,9 +90,9 @@ app.post('/webhook', function (req, res) {
 
               default:
                   var userQuery = req.body.result.resolvedQuery;
-                  userQuery = userQuery.replace(" ","&");
+                  userQuery = userQuery.replace(/ /g,"+");
 
-                  unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/converse?text="+userQuery+"contextId=342938")
+                  unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/converse?contextId=342938&text="+userQuery)
                       .header("X-Mashape-Key", "eB4slA65XimshJw9xMYuRG4XJ5qdp1vzOF2jsnzAGxOioS6ugP")
                       .header("X-Mashape-Host", "spoonacular-recipe-food-nutrition-v1.p.mashape.com")
                       .end(function (result) {

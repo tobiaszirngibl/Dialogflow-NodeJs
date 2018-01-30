@@ -23,8 +23,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="377">
-              <caret line="101" column="70" lean-forward="false" selection-start-line="101" selection-start-column="70" selection-end-line="101" selection-end-column="70" />
+            <state relative-caret-position="252">
+              <caret line="88" column="24" lean-forward="true" selection-start-line="88" selection-start-column="24" selection-end-line="88" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -292,11 +292,18 @@
       <option name="project" value="LOCAL" />
       <updated>1517349425615</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Fixed Stringify">
+      <created>1517349933168</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1517349933168</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9240000" />
+    <option name="totallyTimeSpent" value="9803000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -345,7 +352,8 @@
     <MESSAGE value="Add action differentiation" />
     <MESSAGE value="Added Plan" />
     <MESSAGE value="Added Ask function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Ask function" />
+    <MESSAGE value="Fixed Stringify" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Stringify" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -560,8 +568,8 @@
     <entry file="file://$PROJECT_DIR$/.gitignore" />
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="101" column="70" lean-forward="false" selection-start-line="101" selection-start-column="70" selection-end-line="101" selection-end-column="70" />
+        <state relative-caret-position="252">
+          <caret line="88" column="24" lean-forward="true" selection-start-line="88" selection-start-column="24" selection-end-line="88" selection-end-column="24" />
           <folding />
         </state>
       </provider>
