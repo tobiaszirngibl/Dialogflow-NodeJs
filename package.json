@@ -11,7 +11,8 @@
     "unirest": "^0.5.1",
     "mime-types": "^2.1.17",
     "html-pdf": "^2.2.0",
-    "node-json2html": "^1.1.1"
+    "node-json2html": "^1.1.1",
+    "fs": "^0.0.1-security"
 
   },
   "devDependencies": {},
