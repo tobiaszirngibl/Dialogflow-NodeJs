@@ -122,7 +122,6 @@ app.post('/webhook', function (req, res) {
          var html = json2html.transform(dN,tN);
          html = "<br><h2 style='text-align: center'> Daily Meal Plan</h2><br>" + html;
 
-         var fs = require('fs');
          var pdf = require('html-pdf');
          var options = { format: 'Letter' };
 
