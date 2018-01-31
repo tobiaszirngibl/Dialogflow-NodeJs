@@ -145,7 +145,7 @@ app.post('/webhook', function (req, res) {
 
              const bucket = gcs.bucket(bucketName);
 
-             const filePath = resu.filename;
+             const filePath = fileName;
              const uploadTo = "subfolder/"+fileName;
              const fileMime = mime.lookup(filePath);
 
