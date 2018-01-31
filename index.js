@@ -121,15 +121,19 @@ app.post('/webhook', function (req, res) {
 
          var html = json2html.transform(dN,tN);
          html = "<br><h2 style='text-align: center'> Daily Meal Plan</h2><br>" + html;
-
          var pdf = require('html-pdf');
+         var fs = require('fs');
          var options = { format: 'Letter' };
 
          var fileName = "businesscard4.pdf";
 
-         pdf.create(html, options).toFile('./'+fileName, function(err, resu) {
+         /*pdf.create(html, options).toFile('./'+fileName, function(err, resu) {
              if (err) return console.log(err);
              console.log(resu); // { filename: '/app/businesscard.pdf' }
+             */
+                                            pdf.create(html, options).toStream(function(err, stream){
+             stream.pipe(fs.createWriteStream('./foo.pdf'));
+             console.log(stream);
 
 
 
@@ -145,12 +149,9 @@ app.post('/webhook', function (req, res) {
 
              const bucket = gcs.bucket(bucketName);
 
-             const filePath = fileName;
+             const filePath = stream.path;
              const uploadTo = "subfolder/"+fileName;
              const fileMime = mime.lookup(filePath);
-
-
-             console.log(bucket)
 
              bucket.upload(filePath, {
                  destination: uploadTo,
@@ -182,7 +183,7 @@ app.post('/webhook', function (req, res) {
 
 
 
-         });
+        });
 //Async?
 
 
