@@ -23,10 +23,10 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="139" column="121" lean-forward="false" selection-start-line="139" selection-start-column="121" selection-end-line="139" selection-end-column="121" />
+            <state relative-caret-position="428">
+              <caret line="151" column="38" lean-forward="false" selection-start-line="151" selection-start-column="38" selection-end-line="151" selection-end-column="38" />
               <folding>
-                <marker date="1517440354488" expanded="true" signature="5260:5278" ph="..." />
+                <marker date="1517441000803" expanded="true" signature="5260:5278" ph="..." />
               </folding>
             </state>
           </provider>
@@ -205,7 +205,7 @@
       <workItem from="1517249056336" duration="777000" />
       <workItem from="1517261640219" duration="2542000" />
       <workItem from="1517336770419" duration="1929000" />
-      <workItem from="1517417657000" duration="12377000" />
+      <workItem from="1517417657000" duration="13021000" />
     </task>
     <task id="LOCAL-00001" summary="Add console log">
       <created>1517179456729</created>
@@ -375,11 +375,18 @@
       <option name="project" value="LOCAL" />
       <updated>1517440067885</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Fixed Paths">
+      <created>1517440363863</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1517440363863</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22377000" />
+    <option name="totallyTimeSpent" value="23021000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
@@ -435,7 +442,8 @@
     <MESSAGE value="PDF Fix" />
     <MESSAGE value="Fixed Stream" />
     <MESSAGE value="Added FS dependency" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added FS dependency" />
+    <MESSAGE value="Fixed Paths" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Paths" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -460,7 +468,7 @@
         <state relative-caret-position="600">
           <caret line="40" column="28" lean-forward="false" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
           <folding>
-            <marker date="1517440354488" expanded="true" signature="5260:5278" ph="..." />
+            <marker date="1517441000803" expanded="true" signature="5260:5278" ph="..." />
           </folding>
         </state>
       </provider>
@@ -489,7 +497,7 @@
         <state relative-caret-position="765">
           <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding>
-            <marker date="1517440354488" expanded="true" signature="5260:5278" ph="..." />
+            <marker date="1517441000803" expanded="true" signature="5260:5278" ph="..." />
           </folding>
         </state>
       </provider>
@@ -507,7 +515,7 @@
         <state relative-caret-position="240">
           <caret line="16" column="42" lean-forward="false" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
           <folding>
-            <marker date="1517440354488" expanded="true" signature="5260:5278" ph="..." />
+            <marker date="1517441000803" expanded="true" signature="5260:5278" ph="..." />
           </folding>
         </state>
       </provider>
@@ -531,7 +539,7 @@
         <state relative-caret-position="586">
           <caret line="70" column="69" lean-forward="true" selection-start-line="70" selection-start-column="69" selection-end-line="70" selection-end-column="69" />
           <folding>
-            <marker date="1517440354488" expanded="true" signature="5260:5278" ph="..." />
+            <marker date="1517441000803" expanded="true" signature="5260:5278" ph="..." />
           </folding>
         </state>
       </provider>
@@ -541,7 +549,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1517440354488" expanded="true" signature="5260:5278" ph="..." />
+            <marker date="1517441000803" expanded="true" signature="5260:5278" ph="..." />
           </folding>
         </state>
       </provider>
@@ -562,7 +570,7 @@
         <state relative-caret-position="600">
           <caret line="40" column="28" lean-forward="false" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
           <folding>
-            <marker date="1517440354488" expanded="true" signature="5260:5278" ph="..." />
+            <marker date="1517441000803" expanded="true" signature="5260:5278" ph="..." />
           </folding>
         </state>
       </provider>
@@ -583,7 +591,7 @@
         <state relative-caret-position="600">
           <caret line="40" column="28" lean-forward="false" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
           <folding>
-            <marker date="1517440354488" expanded="true" signature="5260:5278" ph="..." />
+            <marker date="1517441000803" expanded="true" signature="5260:5278" ph="..." />
           </folding>
         </state>
       </provider>
@@ -612,7 +620,7 @@
         <state relative-caret-position="765">
           <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding>
-            <marker date="1517440354488" expanded="true" signature="5260:5278" ph="..." />
+            <marker date="1517441000803" expanded="true" signature="5260:5278" ph="..." />
           </folding>
         </state>
       </provider>
@@ -630,7 +638,7 @@
         <state relative-caret-position="240">
           <caret line="16" column="42" lean-forward="false" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
           <folding>
-            <marker date="1517440354488" expanded="true" signature="5260:5278" ph="..." />
+            <marker date="1517441000803" expanded="true" signature="5260:5278" ph="..." />
           </folding>
         </state>
       </provider>
@@ -675,10 +683,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="139" column="121" lean-forward="false" selection-start-line="139" selection-start-column="121" selection-end-line="139" selection-end-column="121" />
+        <state relative-caret-position="428">
+          <caret line="151" column="38" lean-forward="false" selection-start-line="151" selection-start-column="38" selection-end-line="151" selection-end-column="38" />
           <folding>
-            <marker date="1517440354488" expanded="true" signature="5260:5278" ph="..." />
+            <marker date="1517441000803" expanded="true" signature="5260:5278" ph="..." />
           </folding>
         </state>
       </provider>
