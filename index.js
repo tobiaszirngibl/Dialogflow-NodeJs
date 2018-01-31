@@ -4,6 +4,8 @@ const app = express()
 
 var unirest = require('unirest')
 
+var json2html = require('node-json2html');
+
 app.use(bodyParser.json())
 app.set('port', (process.env.PORT || 5000))
 
@@ -16,6 +18,7 @@ app.get('/', function (req, res) {
 app.get('/webhook', function (req, res) {
   res.send('You must POST your request')
 })
+
 
 app.post('/webhook', function (req, res) {
   // we expect to receive JSON data from api.ai here.
@@ -63,28 +66,136 @@ app.post('/webhook', function (req, res) {
 
               case "food.plan":
 
+
+
                   var diet = req.body.result.parameters['diet'];
-                  var calories = req.body.result.parameters['calories'];
-                  var timespan = req.body.result.parameters['timespan'];
+                   var calories = req.body.result.parameters['calories'];
+                   var timespan = req.body.result.parameters['timespan'];
 
-                  console.log(diet);
-                  console.log(calories);
-                  console.log(timespan);
-                  var webhookReply = 'Hello!: ';
 
-                  unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/mealplans/generate?diet=" + diet + "&exclude=shellfish%2C+olives&targetCalories=" + calories + "&timeFrame=" + timespan)
-                      .header("X-Mashape-Key", "KW1you8CYtmshogLM9mgGuL0OyYXp1t4glDjsnNJi6dLuPQUvo")
-                      .header("Accept", "application/json")
-                      .end(function (result) {
-                          webhookReply += JSON.stringify(result);
+                   var webhookReply = 'Here is your plan: ';
 
-                          res.status(200).json({
-                              source: 'webhook',
-                              speech: webhookReply,
-                              displayText: webhookReply
-                          })
+                   unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/mealplans/generate?diet=" + diet + "&exclude=shellfish%2C+olives&targetCalories=" + calories + "&timeFrame=" + timespan)
+                       .header("X-Mashape-Key", "KW1you8CYtmshogLM9mgGuL0OyYXp1t4glDjsnNJi6dLuPQUvo")
+                       .header("Accept", "application/json")
+                       .end(function (result) {
+                        // Async??
+                           var dN = result.body.meals;
 
-                      });
+                            var sourceList = [];
+                           var obj = dN
+                            var count = 0;
+                            for (var item in dN) {
+                                unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/"+dN[item].id+"/information?includeNutrition=")
+                                    .header("X-Mashape-Key", "eB4slA65XimshJw9xMYuRG4XJ5qdp1vzOF2jsnzAGxOioS6ugP")
+                                    .header("X-Mashape-Host", "spoonacular-recipe-food-nutrition-v1.p.mashape.com")
+                                    .end(function (result) {
+                                        sourceList.push([result.body.id, result.body.spoonacularSourceUrl]);
+
+                                        if(sourceList.length == 3) {
+                                            for(var i = 0; i<3; i++) {
+                                                for(var j = 0; j<3; j++) {
+                                                    if(obj[i].id == sourceList[j][0]) {
+                                                        obj[i]["sourceUrl"] = sourceList[j][1];
+                                                    }
+                                                }
+
+                                            }
+
+                                            var jsonStr = JSON.stringify(obj);
+
+
+        var tN = {"<>":"div","html":[
+                {"<>":"ul","html":[
+                        {"<>":"li","html":[
+                                {"<>":"p","html":"Recipe ID: ${id} "},
+                                {"<>":"p","html":"Title: ${title} "},
+                                {"<>":"a","href":"${sourceUrl}","html":" ${sourceUrl} "},
+                                {"<>":"br","html":""},
+                                {"<>":"img","src":"https://spoonacular.com/recipeImages/${image}","alt":"${title}","width":"100px","height":"100px","html":""}
+                            ]}
+                    ]}
+            ]}
+
+
+
+         var html = json2html.transform(dN,tN);
+         html = "<br><h2 style='text-align: center'> Daily Meal Plan</h2><br>" + html;
+
+         var fs = require('fs');
+         var pdf = require('html-pdf');
+         var options = { format: 'Letter' };
+
+         var fileName = "businesscard4.pdf";
+
+         pdf.create(html, options).toFile('./'+fileName, function(err, resu) {
+             if (err) return console.log(err);
+             console.log(resu); // { filename: '/app/businesscard.pdf' }
+
+
+
+             const keyFilename="nutritionchatbot-firebase-adminsdk-34k9w-b9d42d7e4b.json"; //replace this with api key file
+             const projectId = "nutritionchatbot" //replace with your project id
+             const bucketName = "nutritionchatbot.appspot.com";
+
+             const mime = require('mime-types');
+             const gcs = require('@google-cloud/storage')({
+                 projectId,
+                 keyFilename
+             });
+
+             const bucket = gcs.bucket(bucketName);
+
+             const filePath = resu.filename;
+             const uploadTo = "subfolder/"+fileName;
+             const fileMime = mime.lookup(filePath);
+
+
+             console.log(bucket)
+
+             bucket.upload(filePath, {
+                 destination: uploadTo,
+                 public: true,
+                 metadata: { contentType: fileMime, cacheControl: "public, max-age=300" }
+             }, function (err, file) {
+                 if (err) {
+                     console.log(err);
+                     return;
+                 }
+                 webhookReply += createPublicFileURL(bucketName ,uploadTo);
+                 res.status(200).json({
+                     source: 'webhook',
+                     speech: webhookReply,
+                     displayText: webhookReply
+                 })
+
+
+             });
+
+
+
+
+             function createPublicFileURL(bucketName, storageName) {
+                 return "http://storage.googleapis.com/"+bucketName+"/"+storageName;
+
+             }
+
+
+
+
+         });
+//Async?
+
+
+
+
+
+                                        }
+                                    });
+                            };
+
+
+                       });
 
                   break;
 
