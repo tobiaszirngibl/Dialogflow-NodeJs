@@ -131,59 +131,59 @@ app.post('/webhook', function (req, res) {
              if (err) return console.log(err);
              console.log(resu); // { filename: '/app/businesscard.pdf' }
              */
-                                            pdf.create(html, options).toStream(function(err, stream){
-             stream.pipe(fs.createWriteStream(fileName));
-             console.log(stream);
+                                            pdf.create(html).toStream(function(err, stream) {
+                                                if (err) {
+                                                    console.log(err)
+                                                } else {
+
+                                                    const keyFilename = "./nutritionchatbot-firebase-adminsdk-34k9w-b9d42d7e4b.json"; //replace this with api key file
+                                                    const projectId = "nutritionchatbot" //replace with your project id
+                                                    const bucketName = "nutritionchatbot.appspot.com";
+
+                                                    const mime = require('mime-types');
+                                                    const gcs = require('@google-cloud/storage')({
+                                                        projectId,
+                                                        keyFilename
+                                                    });
+
+                                                    const bucket = gcs.bucket(bucketName);
+
+                                                    const filePath = stream.path;
+                                                    console.log(filePath);
+                                                    const uploadTo = "subfolder/" + fileName;
+                                                    const fileMime = mime.lookup(filePath);
 
 
-
-             const keyFilename="./nutritionchatbot-firebase-adminsdk-34k9w-b9d42d7e4b.json"; //replace this with api key file
-             const projectId = "nutritionchatbot" //replace with your project id
-             const bucketName = "nutritionchatbot.appspot.com";
-
-             const mime = require('mime-types');
-             const gcs = require('@google-cloud/storage')({
-                 projectId,
-                 keyFilename
-             });
-
-             const bucket = gcs.bucket(bucketName);
-
-             const filePath = fileName;
-             console.log(filePath);
-             const uploadTo = "subfolder/"+fileName;
-             const fileMime = mime.lookup(filePath);
-
-             bucket.upload(filePath, {
-                 destination: uploadTo,
-                 public: true,
-                 metadata: { contentType: fileMime, cacheControl: "public, max-age=300" }
-             }, function (err, file) {
-                 if (err) {
-                     console.log(err);
-                     return;
-                 }
-                 webhookReply += createPublicFileURL(bucketName ,uploadTo);
-                 res.status(200).json({
-                     source: 'webhook',
-                     speech: webhookReply,
-                     displayText: webhookReply
-                 })
+                                                    bucket.upload(filePath, {
+                                                        destination: uploadTo,
+                                                        public: true,
+                                                        metadata: {
+                                                            contentType: fileMime,
+                                                            cacheControl: "public, max-age=300"
+                                                        }
+                                                    }, function (err, file) {
+                                                        if (err) {
+                                                            console.log(err);
+                                                            return;
+                                                        }
+                                                        webhookReply += createPublicFileURL(bucketName, uploadTo);
+                                                        res.status(200).json({
+                                                            source: 'webhook',
+                                                            speech: webhookReply,
+                                                            displayText: webhookReply
+                                                        })
 
 
-             });
+                                                    });
 
 
+                                                    function createPublicFileURL(bucketName, storageName) {
+                                                        return "http://storage.googleapis.com/" + bucketName + "/" + storageName;
+
+                                                    }
 
 
-             function createPublicFileURL(bucketName, storageName) {
-                 return "http://storage.googleapis.com/"+bucketName+"/"+storageName;
-
-             }
-
-
-
-
+                                                }
         });
 //Async?
 
